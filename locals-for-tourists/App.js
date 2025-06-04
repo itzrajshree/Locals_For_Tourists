@@ -1,21 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform } from 'react-native';
+import MobileApp from './MobileApp';
+import WebApp from './WebApp';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>My first ever app on expo</Text>
-      <Text>This is the basic screen that opens up first on the app and the webpage.</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  return Platform.OS === 'web' ? <WebApp /> : <MobileApp />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
